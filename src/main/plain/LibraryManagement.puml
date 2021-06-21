@@ -35,7 +35,7 @@ class Limit {
 }
 
 class Librarian {
-    librarianId
+    id
     username
     password
     name

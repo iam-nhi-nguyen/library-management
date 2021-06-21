@@ -10,16 +10,27 @@ import java.util.List;
 @Entity
 @Table(name = "borrower")
 public class Borrower extends Person {
-    private String position;
+    private Long positionId;
+
+    @Transient
+    private Position position = null;
 
     @Transient
     private List<Loan> loanList = new ArrayList();
 
-    public String getPosition() {
+    public Long getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(Long positionId) {
+        this.positionId = positionId;
+    }
+
+    public Position getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
