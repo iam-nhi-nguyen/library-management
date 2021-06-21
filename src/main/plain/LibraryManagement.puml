@@ -1,20 +1,30 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-class Person {
+abstract class Person {
     personId
     name
     email
     phone
 }
-
 class Borrower {
     position
 }
-Person <|-- Borrower
-
+class BorrowerManagement {
+    list()
+    search()
+    add()
+    delete()
+    update()
+}
 class Author
-Person <|-- Author
+class AuthorManagement {
+    list()
+    search()
+    add()
+    delete()
+    update()
+}
 
 class Book {
     bookId
@@ -22,8 +32,14 @@ class Book {
     category
     status
 }
+class BookManagement {
+    list()
+    search()
+    add()
+    delete()
+    update()
+}
 
-Book }|-|{ Author
 
 class Loan {
     loanId
@@ -32,16 +48,40 @@ class Loan {
     timeBorrow
     timeReturn
 }
-
-Borrower ||--|{ Loan
-Book ||--|{ Loan
+class LoanManagement {
+    list()
+    search()
+    add()
+    delete()
+    update()
+}
 
 class Limit {
     position
     length
+    number
 }
+
+class Librarian {
+    librarianId
+    username
+    password
+    name
+}
+
+Person <|-r- Borrower
+Person <|-l- Author
+
+Author }|--|{ Book
+
+Loan }|-u-|| Borrower
+Loan }|-l-|| Book
 
 Borrower }|-|| Limit
 
+BorrowerManagement ||-d-|{ Borrower
+AuthorManagement ||-d-|{ Author
+BookManagement ||-r-|{ Book
+LoanManagement ||-l-|{ Loan
 
 @enduml
