@@ -2,7 +2,7 @@
 'https://plantuml.com/class-diagram
 
 abstract class Person {
-    personId
+    id
     name
     email
     phone
@@ -10,50 +10,22 @@ abstract class Person {
 class Borrower {
     position
 }
-class BorrowerManagement {
-    list()
-    search()
-    add()
-    delete()
-    update()
-}
 class Author
-class AuthorManagement {
-    list()
-    search()
-    add()
-    delete()
-    update()
-}
 
 class Book {
-    bookId
+    id
     title
     category
-    status
-}
-class BookManagement {
-    list()
-    search()
-    add()
-    delete()
-    update()
+    available
 }
 
 
 class Loan {
-    loanId
+    id
     borrowerId
     bookId
     timeBorrow
     timeReturn
-}
-class LoanManagement {
-    list()
-    search()
-    add()
-    delete()
-    update()
 }
 
 class Limit {
@@ -78,10 +50,5 @@ Loan }|-u-|| Borrower
 Loan }|-l-|| Book
 
 Borrower }|-|| Limit
-
-BorrowerManagement ||-d-|{ Borrower
-AuthorManagement ||-d-|{ Author
-BookManagement ||-r-|{ Book
-LoanManagement ||-l-|{ Loan
 
 @enduml
