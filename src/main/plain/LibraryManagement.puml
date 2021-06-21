@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Person {
+    personId
+    name
+    email
+    phone
+}
+
+class Borrower {
+    position
+}
+Person <|-- Borrower
+
+class Author
+Person <|-- Author
+
+class Book {
+    bookId
+    title
+    category
+    status
+}
+
+Book }|-|{ Author
+
+class Loan {
+    loanId
+    borrowerId
+    bookId
+    timeBorrow
+    timeReturn
+}
+
+Borrower ||--|{ Loan
+Book ||--|{ Loan
+
+class Limit {
+    position
+    length
+}
+
+Borrower }|-|| Limit
+
+
+@enduml
