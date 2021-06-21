@@ -8,7 +8,7 @@ abstract class Person {
     phone
 }
 class Borrower {
-    position
+    positionId
 }
 class Author
 
@@ -28,8 +28,9 @@ class Loan {
     timeReturn
 }
 
-class Limit {
-    position
+class Position {
+    id
+    title
     length
     number
 }
@@ -49,6 +50,6 @@ Author }|--|{ Book
 Loan }|-u-|| Borrower
 Loan }|-l-|| Book
 
-Borrower }|-|| Limit
+Borrower }|-|| Position
 
 @enduml
