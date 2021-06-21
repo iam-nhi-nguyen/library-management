@@ -4,6 +4,7 @@ import com.management.library.core.IdEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "loan")
@@ -12,6 +13,11 @@ public class Loan extends IdEntity {
     private Long bookId;
     private String timeBorrow;
     private String timeReturn;
+
+    @Transient
+    private Borrower borrower = null;
+    @Transient
+    private Book book = null;
 
     public Long getBorrowerId() {
         return borrowerId;
@@ -43,5 +49,21 @@ public class Loan extends IdEntity {
 
     public void setTimeReturn(String timeReturn) {
         this.timeReturn = timeReturn;
+    }
+
+    public Borrower getBorrower() {
+        return borrower;
+    }
+
+    public void setBorrower(Borrower borrower) {
+        this.borrower = borrower;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }

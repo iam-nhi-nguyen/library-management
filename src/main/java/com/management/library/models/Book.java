@@ -4,11 +4,10 @@ import com.management.library.core.IdEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "book")
@@ -17,21 +16,8 @@ public class Book extends IdEntity {
     private String category;
     private Boolean available;
 
-    @ManyToMany
-    @JoinTable(
-            name = "book_author",
-            joinColumns = @JoinColumn(name = "book_id"),
-            inverseJoinColumns = @JoinColumn(name = "author_id")
-    )
-    Set<Author> authors;
-
-    public Set<Author> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(Set<Author> authors) {
-        this.authors = authors;
-    }
+    @Transient
+    private List<Loan> loanList = new ArrayList();
 
     public String getTitle() {
         return title;
@@ -55,5 +41,13 @@ public class Book extends IdEntity {
 
     public void setAvailable(Boolean available) {
         this.available = available;
+    }
+
+    public List<Loan> getLoanList() {
+        return loanList;
+    }
+
+    public void setLoanList(List<Loan> loanList) {
+        this.loanList = loanList;
     }
 }

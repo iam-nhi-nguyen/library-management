@@ -2,6 +2,9 @@ package com.management.library.models;
 
 import com.management.library.core.IdEntity;
 
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class Person extends  IdEntity {
     private String name;
     private String email;
