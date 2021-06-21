@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/api/book")
 public class BookEndpoint extends CrudApiEndpoint<Book, Long> {
 
     private static Logger logger = LoggerFactory.getLogger(BookEndpoint.class);
@@ -21,7 +21,7 @@ public class BookEndpoint extends CrudApiEndpoint<Book, Long> {
     public BookEndpoint(BookService service) {
         super(service);
         this.bookService = service;
-        this.baseUrl = "/api/books";
+        this.baseUrl = "/api/book";
     }
 
 }
