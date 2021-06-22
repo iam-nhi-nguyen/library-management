@@ -11,8 +11,8 @@ import javax.persistence.Transient;
 public class Loan extends IdEntity {
     private Long borrowerId;
     private Long bookId;
-    private String timeBorrow;
-    private String timeReturn;
+    private Long timeBorrow;
+    private Long timeReturn;
 
     @Transient
     private Borrower borrower = null;
@@ -35,19 +35,19 @@ public class Loan extends IdEntity {
         this.bookId = bookId;
     }
 
-    public String getTimeBorrow() {
+    public Long getTimeBorrow() {
         return timeBorrow;
     }
 
-    public void setTimeBorrow(String timeBorrow) {
+    public void setTimeBorrow(Long timeBorrow) {
         this.timeBorrow = timeBorrow;
     }
 
-    public String getTimeReturn() {
+    public Long getTimeReturn() {
         return timeReturn;
     }
 
-    public void setTimeReturn(String timeReturn) {
+    public void setTimeReturn(Long timeReturn) {
         this.timeReturn = timeReturn;
     }
 
