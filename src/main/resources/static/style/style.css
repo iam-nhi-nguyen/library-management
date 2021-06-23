@@ -56,9 +56,6 @@ html, body {
 
 .tabs-vertical .tab-content {
     display: block;
-    overflow: auto;
-    overflow-y: auto;
-    overflow-x: auto;
 }
 
 .tabs-vertical>.tab-content .active {
@@ -70,8 +67,6 @@ html, body {
     height: 100%;
     margin: 0;
     display: block;
-    overflow-y: auto;
-    overflow-x: auto;
 }
 
 .inline-icon-align {

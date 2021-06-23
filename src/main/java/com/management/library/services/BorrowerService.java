@@ -8,9 +8,11 @@ import com.management.library.repositories.BorrowerRepository;
 import com.management.library.repositories.PositionRepository;
 import com.management.library.repositories.LoanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.awt.print.Pageable;
 import java.util.List;
 
 @Service

@@ -13,7 +13,7 @@ public class Borrower extends Person {
     private Long positionId;
 
     @Transient
-    private Position position = null;
+    private Position position;
 
     @Transient
     private List<Loan> loanList = new ArrayList();
