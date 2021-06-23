@@ -1,0 +1,79 @@
+:root {
+    --darkslateblue: rgb(32, 80, 129);
+    --darkblue: rgb(0, 112, 192);
+    --blue: rgb(32, 125, 185);
+    --bluegray: rgb(83, 134, 180);
+    --aqua: rgb(115, 174, 195);
+    --gray: rgb(127, 127, 127);
+    --lightgray: rgb(191, 191, 191);
+    --yellow: rgb(255, 192, 0);
+    --yellowalpha: rgba(255, 192, 0, 0.6);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.tabs-vertical .tabs {
+    min-height: 100vh;
+    background: var(--darkslateblue);
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.tabs-vertical .tab a {
+    text-align: left;
+    color: var(--yellowalpha);
+}
+
+.tabs-vertical .tab .active {
+    -moz-transition: border-color .5s ease;
+    -o-transition: border-color .5s ease;
+    -webkit-transition: border-color .5s ease;
+    transition: border-color .5s ease;
+    border-right: 3px solid var(--yellow);
+}
+
+.tabs-vertical .tab :hover {
+    border-right: 3px solid var(--yellowalpha);
+}
+
+.tabs-vertical .indicator {
+    display: none;
+}
+
+.tabs .tab a.active {
+    color: var(--yellow);
+}
+
+.tabs .tab a:hover {
+    color: var(--yellow);
+}
+
+.tabs-vertical .tab-content {
+    display: block;
+    overflow: auto;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.tabs-vertical>.tab-content .active {
+    display: block;
+}
+
+#top, #bottom {
+    padding: 0;
+    height: 100%;
+    margin: 0;
+    display: block;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.inline-icon-align {
+    vertical-align: -6px;
+}
