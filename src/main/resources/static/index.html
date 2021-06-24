@@ -6,8 +6,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
           type="text/css" rel="stylesheet" >
     <link rel="stylesheet" href="style/style.css">
-    <script src="style/style.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
@@ -22,44 +20,40 @@
           rel="shortcut icon" type="image/x-icon"/>
     <title>Quản lý thư viện</title>
 </head>
-<body ng-app="myApp" ng-controller="myCtrl as myCtrl">
-<div class="row" >
-    <div class="col s2 tabs-vertical" id="top" style="padding: 0">
-        <ul class='tabs' style="padding-top: 12px">
-            <br>
-            <li class="center-align" style="font-size: 20px; font-weight: bold">
-                <a href="#">
-                    <img src="https://image.flaticon.com/icons/png/512/224/224595.png"
-                         style="width: 100px">
-                </a>
-                <br>
-                THƯ VIỆN
-            </li>
-            <br><br>
-            <li class='tab'>
-                <a href='#!book-author' ng-click="myCtrl.currentTab = '/book-author'"
-                   ng-class="{'active': myCtrl.currentTab == '/book-author'}">
-                    <i class="material-icons inline-icon-align">library_books</i> Sách và Tác giả
-                </a>
-            </li>
-            <li class='tab'>
-                <a href='#!borrower' ng-click="myCtrl.currentTab = '/borrower'"
-                   ng-class="{'active': myCtrl.currentTab == '/borrower'}">
-                    <i class="material-icons inline-icon-align">face</i> Người mượn
-                </a>
-            </li>
-            <li class='tab'>
-                <a href='#!loan' ng-click="myCtrl.currentTab = '/loan'"
-                   ng-class="{'active': myCtrl.currentTab == '/loan'}">
-                    <i class="material-icons inline-icon-align">assignment</i> Phiếu mượn
-                </a>
-            </li>
-        </ul>
-    </div>
+<body ng-app="myApp" ng-controller="myCtrl as ctrl">
 
-    <div class="col s10">
-        <div class="tab-content" ng-view></div>
-    </div>
-</div>
+<!--Sidenav-->
+<ul class="sidenav sidenav-fixed">
+    <li id="logo" class="center-align">
+        <img src="https://umei.ca/wp-content/uploads/2016/10/pre-register-icon.png"><br>Thư viện
+    </li><br>
+    <li class='tab'>
+        <a href='#!book-author'
+           ng-click="ctrl.currentTab = '/book-author'"
+           ng-class="{'active': ctrl.currentTab == '/book-author'}">
+            <i class="material-icons inline-icon-align">collections_bookmark</i>Sách và Tác giả
+        </a>
+    </li>
+    <li class='tab'>
+        <a href='#!borrower'
+           ng-click="ctrl.currentTab = '/borrower'"
+           ng-class="{'active': ctrl.currentTab == '/borrower'}">
+            <i class="material-icons inline-icon-align">account_box</i>Thành viên
+        </a>
+    </li>
+    <li class='tab'>
+        <a href='#!loan'
+           ng-click="ctrl.currentTab = '/loan'"
+           ng-class="{'active': ctrl.currentTab == '/loan'}">
+            <i class="material-icons inline-icon-align">assignment</i>Phiếu mượn
+        </a>
+    </li>
+</ul>
+
+<!--Main content-->
+<main>
+    <ng-view class="tab-content"></ng-view>
+</main>
+
 </body>
 </html>
