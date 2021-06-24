@@ -4,6 +4,7 @@
     --blue: rgb(32, 125, 185);
     --bluegray: rgb(83, 134, 180);
     --aqua: rgb(115, 174, 195);
+    --darkslategray: rgb(26, 64, 103);
     --gray: rgb(127, 127, 127);
     --lightgray: rgb(191, 191, 191);
     --yellow: rgb(255, 192, 0);
@@ -54,12 +55,17 @@ html, body {
     color: var(--yellow);
 }
 
+.tabs {
+    color: var(--yellow);
+}
+
 .tabs-vertical .tab-content {
     display: block;
 }
 
 .tabs-vertical>.tab-content .active {
     display: block;
+    overflow-y: scroll;
 }
 
 #top, #bottom {
@@ -71,4 +77,30 @@ html, body {
 
 .inline-icon-align {
     vertical-align: -6px;
+}
+
+th {
+    color: var(--darkblue);
+}
+
+.add-style, .add-style:focus, .add-style:hover {
+    background: var(--blue);
+}
+
+.update-style, .update-style:hover {
+    background: var(--yellow);
+}
+
+.input-field input:focus + label {
+    color: var(--gray) !important;
+}
+
+.row .input-field input {
+    border-bottom: 1px solid var(--lightgray) !important;
+    box-shadow: 0 1px 0 0 var(--lightgray) !important;
+}
+
+.row .input-field input:focus {
+    border-bottom: 1px solid var(--gray) !important;
+    box-shadow: 0 1px 0 0 var(--gray) !important;
 }

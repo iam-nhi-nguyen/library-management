@@ -20,6 +20,7 @@ app.config(function($routeProvider) {
         });
 });
 
-app.controller("myCtrl", function ($scope) {
-    $scope.currentTab = "book-author";
+app.controller("myCtrl", function ($scope, $location) {
+    var controller = this;
+    controller.currentTab = $location.url();
 });

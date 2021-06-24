@@ -1,4 +1,63 @@
-<div style="padding-top: 12px">
+<nav>
+    <div class="nav-wrapper">
+        <form>
+            <div class="input-field">
+                <input id="search" type="search" placeholder="Tìm kiếm" required
+                       ng-model="input_string" ng-change="searchBorrowers(input_string)">
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+            </div>
+        </form>
+    </div>
+</nav>
+
+<div class="row" style="padding: 12px">
+    <form class="col s12" accept-charset="utf-8">
+        <div class="row" accept-charset="utf-8">
+
+            <div class="input-field col s3">
+                <i class="material-icons prefix" ng-style="{'color': (borrowerCtrl.in_edit_mode) ? 'var(--yellow)' : 'var(--blue)'}">account_circle</i>
+                <input id="name_inline" type="text" ng-model="name">
+                <label for="name_inline" ng-if="borrowerCtrl.in_edit_mode === false">Họ và tên</label>
+            </div>
+
+            <div class="input-field col s3">
+                <i class="material-icons prefix" ng-style="{'color': (borrowerCtrl.in_edit_mode) ? 'var(--yellow)' : 'var(--blue)'}">email</i>
+                <input id="email_inline" type="email" class="validate" ng-model="email">
+                <label for="email_inline" ng-if="borrowerCtrl.in_edit_mode === false">Email</label>
+                <span class="helper-text" data-error="Email không hợp lệ" data-success=""></span>
+            </div>
+
+            <div class="input-field col s3">
+                <i class="material-icons prefix" ng-style="{'color': (borrowerCtrl.in_edit_mode) ? 'var(--yellow)' : 'var(--blue)'}">phone</i>
+                <input id="phone_inline" type="tel" ng-model="phone" class="validate">
+                <label for="phone_inline" ng-if="borrowerCtrl.in_edit_mode === false">Số điện thoại</label>
+                <span class="helper-text" data-error="Số điện thoại không hợp lệ" data-success=""></span>
+            </div>
+
+<!--            issue here-->
+            <div class="input-field col s2">
+                <i class="material-icons prefix" ng-style="{'color': (borrowerCtrl.in_edit_mode) ? 'var(--yellow)' : 'var(--blue)'}">layers</i>
+                <select id="position_inline" ng-model="positionId" class="browser-default" style="text-align: right">
+                    <option value="" disabled selected>Chức vụ</option>
+                    <option value="1">Sinh viên</option>
+                    <option value="2">Giảng viên</option>
+                </select>
+            </div>
+
+            <div style="padding-top: 20px; padding-left: 30px" class="col s1">
+                <button class="btn-floating waves-effect add-style" ng-click="addBorrower()"
+                        ng-if="borrowerCtrl.in_edit_mode === false" >
+                    <i class="material-icons">add</i>
+                </button>
+                <button class="btn-floating waves-effect waves-light update-style" ng-click="updateBorrower()"
+                        ng-if="borrowerCtrl.in_edit_mode" >
+                    <i class="material-icons">update</i>
+                </button>
+            </div>
+        </div>
+    </form>
+
     <div class="row">
         <div class="col s12">
             <table class="striped">
@@ -9,6 +68,7 @@
                     <th>EMAIL</th>
                     <th>SĐT</th>
                     <th>CHỨC VỤ</th>
+                    <th>SỬA/XÓA</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -19,13 +79,13 @@
                     <td>{{ x.phone == null ? "-" : x.phone }}</td>
                     <td>{{ x.positionId == null ? "-" : x.positionId == 1 ? "Sinh viên" : "Giảng viên" }}</td>
                     <td>
-                        <button class="btn-floating waves-effect waves-light orange"
-                                ng-if="controller.in_edit_mode === false || controller.chosen_id != x.id" ng-click="enterEditMode(x)">
+                        <button class="btn-floating waves-effect waves-light update-style"
+                                ng-if="borrowerCtrl.in_edit_mode === false || borrowerCtrl.chosen_id != x.id" ng-click="enterEditMode(x)">
                             <i class="material-icons">update</i></button>
-                        <button class="btn-floating waves-effect waves-light teal"
-                                ng-if="controller.in_edit_mode && controller.chosen_id == x.id" ng-click="exitEditMode(x)">
+                        <button class="btn-floating waves-effect waves-light add-style"
+                                ng-if="borrowerCtrl.in_edit_mode && borrowerCtrl.chosen_id == x.id" ng-click="exitEditMode(x)">
                             <i class="material-icons">exit_to_app</i></button>
-                        <button class="btn-floating waves-effect waves-light red" ng-click="deleteStudent(x.id)">
+                        <button class="btn-floating waves-effect waves-light red" ng-click="deleteBorrower(x.id)">
                             <i class="material-icons">delete_forever</i></button>
                     </td>
                 </tr>

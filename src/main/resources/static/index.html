@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="style/style.css">
     <script src="style/style.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="controller/app.js"></script>
     <script src="controller/bookAuthor.js"></script>
     <script src="controller/borrower.js"></script>
@@ -22,12 +22,12 @@
           rel="shortcut icon" type="image/x-icon"/>
     <title>Quản lý thư viện</title>
 </head>
-<body ng-app="myApp" ng-controller="myCtrl">
-<div class="row tabs-vertical" id="top">
-    <div class="col s2" style="padding: 0">
+<body ng-app="myApp" ng-controller="myCtrl as myCtrl">
+<div class="row" >
+    <div class="col s2 tabs-vertical" id="top" style="padding: 0">
         <ul class='tabs' style="padding-top: 12px">
             <br>
-            <li class="center-align" style="font-size: 20px; color: rgb(255, 192, 0); font-weight: bold">
+            <li class="center-align" style="font-size: 20px; font-weight: bold">
                 <a href="#">
                     <img src="https://image.flaticon.com/icons/png/512/224/224595.png"
                          style="width: 100px">
@@ -37,25 +37,28 @@
             </li>
             <br><br>
             <li class='tab'>
-                <a href='#!book-author' ng-click="currentTab = 'book-author'" ng-class="{'active': currentTab == 'book-author'}">
+                <a href='#!book-author' ng-click="myCtrl.currentTab = '/book-author'"
+                   ng-class="{'active': myCtrl.currentTab == '/book-author'}">
                     <i class="material-icons inline-icon-align">library_books</i> Sách và Tác giả
                 </a>
             </li>
             <li class='tab'>
-                <a href='#!borrower' ng-click="currentTab = 'borrower'" ng-class="{'active': currentTab == 'borrower'}">
-                    <i class="material-icons inline-icon-align">face</i> Người mượn sách
+                <a href='#!borrower' ng-click="myCtrl.currentTab = '/borrower'"
+                   ng-class="{'active': myCtrl.currentTab == '/borrower'}">
+                    <i class="material-icons inline-icon-align">face</i> Người mượn
                 </a>
             </li>
             <li class='tab'>
-                <a href='#!loan' ng-click="currentTab = 'loan'" ng-class="{'active': currentTab == 'loan'}">
-                    <i class="material-icons inline-icon-align">assignment</i> Phiếu mượn sách
+                <a href='#!loan' ng-click="myCtrl.currentTab = '/loan'"
+                   ng-class="{'active': myCtrl.currentTab == '/loan'}">
+                    <i class="material-icons inline-icon-align">assignment</i> Phiếu mượn
                 </a>
             </li>
         </ul>
     </div>
 
     <div class="col s10">
-        <div class="tab-content" ng-view></div>
+        <ng-view class="tab-content"></ng-view>
     </div>
 </div>
 </body>

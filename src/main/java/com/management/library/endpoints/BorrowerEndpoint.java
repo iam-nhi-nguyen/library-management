@@ -22,6 +22,12 @@ public class BorrowerEndpoint extends CrudApiEndpoint<Borrower, Long> {
         super(service);
         this.borrowerService = service;
         this.baseUrl = "/api/borrower";
+
+        try {
+            logger.info("hai so dau vao {}, {}", 9, 10);
+        }catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
     }
 
 }
