@@ -1,1 +1,62 @@
-{{ loanCtrl.x }}
+
+<div style="padding-top: 12px">
+    <nav>
+        <div class="nav-wrapper">
+            <form>
+                <div class="input-field" >
+                 <input id="search" type="search" placeholder="Tìm kiếm theo ID sách, ID sinh viên" required
+                       ng-model="input_string" ng-change="searchStudents(input_string)">
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                 <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+    <div class="row">
+        <form class="col s12" accept-charset="utf-8">
+            <div class="row">
+                <div class="input-field col s2">
+                    <input id="name_inline" type="text" ng-model="bookId" placeholder="Nhập ID sách">
+                </div>
+                <div class="input-field col s2">
+                    <input id="major_inline" type="text" ng-model="borrowerId" placeholder="Nhập ID đọc giả"  >
+                </div>
+               </div>
+            <button class="btn-floating waves-effect waves-light red" ng-click="addLoan(id)">
+                <i class="material-icons">add</i></button>
+           </form>
+       </div>
+
+       <div class="row">
+           <div class="col s12">
+               <table class="striped">
+                   <thead>
+                   <tr>
+                       <th>SÁCH</th>
+                       <th>ID ĐỘC GIẢ</th>
+                       <th>ĐỘC GIẢ</th>
+                       <th>THỜI GIAN MƯỢN</th>
+                       <th>THỜI GIAN TRẢ</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                   <tr ng-repeat="x in loans">
+                       <td>{{ x.book.title == null ? "_": x.book.title}}</td>
+                       <td>{{ x.borrower.id == null ? "-" : x.borrower.id }}</td>
+                       <td>{{ x.borrower.name ==null ? "-" : x.borrower.name }}</td>
+                       <td>{{ x.timeBorrow == null ? "-" : x.timeBorrow }}</td>
+                       <td>{{ x.timeReturn == null ? "-" : x.timeReturn}}</td>
+                       <td>
+                           <button class="btn-floating waves-effect waves-light orange"
+                                   ng-if="controller.in_edit_mode === false || controller.chosen_id != x.id" ng-click="updateLoan(x)">
+                               <i class="material-icons">update</i>
+                           </button>
+
+                       </td>
+                   </tr>
+                   </tbody>
+               </table>
+           </div>
+       </div>
+   </div>

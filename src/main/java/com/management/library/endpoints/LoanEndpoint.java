@@ -1,6 +1,6 @@
 package com.management.library.endpoints;
 
-import com.management.library.core.CrudApiEndpoint;
+import com.management.library.core.rsql.CrudApiEndpoint;
 import com.management.library.models.Loan;
 import com.management.library.services.LoanService;
 import org.slf4j.Logger;
@@ -23,5 +23,6 @@ public class LoanEndpoint extends CrudApiEndpoint<Loan, Long> {
         this.loanService = service;
         this.baseUrl = "/api/loan";
     }
+
 
 }

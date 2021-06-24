@@ -36,7 +36,7 @@ public class CrudService<T extends IdEntity, ID extends Serializable> {
     public Page<T> findAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
-
+///tìm tất cả
     public List<T> search(String query) {
         if (StringUtils.isEmpty(query)) {
             return repository.findAll();

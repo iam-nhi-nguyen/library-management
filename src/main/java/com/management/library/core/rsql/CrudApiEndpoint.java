@@ -1,5 +1,7 @@
-package com.management.library.core;
+package com.management.library.core.rsql;
 
+import com.management.library.core.CrudService;
+import com.management.library.core.IdEntity;
 import com.management.library.utils.PaginationUtil;
 import com.management.library.utils.SecurityUtils;
 import org.slf4j.Logger;
@@ -28,6 +30,11 @@ public abstract class CrudApiEndpoint<T extends IdEntity, ID extends Serializabl
 
     public CrudApiEndpoint(CrudService service) {
         this.service = service;
+    }
+
+    @RequestMapping(path="/all", method = RequestMethod.GET)
+    public List<T> getAll(@RequestParam("query") String query) {
+        return service.search(query);
     }
 
     @RequestMapping(method = RequestMethod.GET)

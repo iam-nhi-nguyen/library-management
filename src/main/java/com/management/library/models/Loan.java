@@ -2,6 +2,7 @@ package com.management.library.models;
 
 import com.management.library.core.IdEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -15,9 +16,9 @@ public class Loan extends IdEntity {
     private Long timeReturn;
 
     @Transient
-    private Borrower borrower = null;
+    private Borrower borrower = new Borrower();
     @Transient
-    private Book book = null;
+    private Book book = new Book();
 
     public Long getBorrowerId() {
         return borrowerId;
