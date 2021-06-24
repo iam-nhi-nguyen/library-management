@@ -1,6 +1,6 @@
 package com.management.library.endpoints;
 
-import com.management.library.core.CrudApiEndpoint;
+import com.management.library.core.rsql.CrudApiEndpoint;
 import com.management.library.models.Book;
 import com.management.library.services.BookService;
 import org.slf4j.Logger;

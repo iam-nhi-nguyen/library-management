@@ -15,7 +15,9 @@ app.controller("borrowerCtrl", function ($scope, $http) {
         $http({method: "DELETE", url:"/api/borrower/" + id,
             transformResponse: function(data) {
                 return data;
-            },})
+            },
+
+        })
             .then(
                 function (response) { $scope.getBorrowers(); },
                 function (response) { console.log("Error" + ":" + response.error + ":" + response.data); }

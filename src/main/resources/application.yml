@@ -3,6 +3,8 @@ spring:
     url: jdbc:mysql://10.15.13.149:3306/librarytest?useUnicode=true&characterEncoding=utf-8
     username: root
     password: root
+  jpa:
+    show-sql: true
 
 logging:
   level:

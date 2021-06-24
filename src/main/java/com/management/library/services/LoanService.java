@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -40,5 +41,17 @@ public class LoanService extends CrudService<Loan, Long> {
         Book book = bookRepository.findFirstById(loan.getBookId());
         loan.setBook(book);
         return loan;
+    }
+
+    @Override
+    public List<Loan> search(String query) {
+        List<Loan> result = super.search(query);
+        for (Loan loan : result) {
+            Borrower borrower = borrowerRepository.findFirstById(loan.getBorrowerId());
+            loan.setBorrower(borrower);
+            Book book = bookRepository.findFirstById(loan.getBookId());
+            loan.setBook(book);
+        }
+        return result;
     }
 }

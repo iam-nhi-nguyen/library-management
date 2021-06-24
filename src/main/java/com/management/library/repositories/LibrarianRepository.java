@@ -4,4 +4,6 @@ import com.management.library.core.CustomJpaRepository;
 import com.management.library.models.Librarian;
 
 public interface LibrarianRepository extends CustomJpaRepository<Librarian,Long>  {
+    Librarian findLibrarianByUsernameAndPassword(String userName, String passWord);
+
 }
