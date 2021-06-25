@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+left to right direction
+skinparam actorStyle awesome
+
+:Thủ thư: as User
+
+User --> (Quản lý\nmượn tài liệu)
+User --> (Quản lý\ntrả tài liệu)
+
+(Quản lý\nmượn tài liệu) --> (Liệt kê\ntrạng thái mượn) #line.dashed :<<include>>
+(Liệt kê\ntrạng thái mượn) <-- (Tạo mới) #line.dashed :<<extend>>
+(Liệt kê\ntrạng thái mượn) <- (Hủy) #line.dashed :<<extend>>
+note on link
+    nếu đã mược quá số sách
+end note
+
+(Quản lý\ntrả tài liệu) --> (Liệt kê\ntrạng thái trả) #line.dashed :<<include>>
+(Liệt kê\ntrạng thái trả) --> (Cập nhật\nthông tin) #line.dashed :<<include>>
+(Liệt kê\ntrạng thái trả) <- (Thông báo\nđộc giả) #line.dashed :<<extend>>
+note on link
+    nếu đã mượn quá
+end note
+
+@enduml

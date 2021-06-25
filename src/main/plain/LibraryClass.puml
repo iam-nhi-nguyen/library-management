@@ -19,7 +19,6 @@ class Book {
     available
 }
 
-
 class Loan {
     id
     borrowerId
@@ -47,9 +46,9 @@ Person <|-l- Author
 
 Author }|--|{ Book
 
-Loan }|-u-|| Borrower
-Loan }|-l-|| Book
+Loan }o-u-o| Borrower
+Loan }o-l-o| Book
 
-Borrower }|-|| Position
+Borrower }o-|| Position
 
 @enduml

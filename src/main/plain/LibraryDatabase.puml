@@ -1,0 +1,66 @@
+@startuml
+'https://plantuml.com/class-diagram
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+!define primary_key(x) <b>x</b>
+!define foreign_key(x) <color:royalBlue>x</color>
+!define not_null(x) <u>x</u>
+!define unique(x) <color:green>x</color>
+
+Table(Borrower, "borrower\n(Độc giả)") {
+    primary_key(id) BIGINT
+    not_null(name) VARCHAR
+    email VARCHAR
+    phone VARCHAR
+}
+
+Table(Author, "Author\n(Tác giả)") {
+    primary_key(id) BIGINT
+    not_null(name) VARCHAR
+    email VARCHAR
+    phone VARCHAR
+}
+
+Table(BookAuthor, "book_author\n(Sách-Tác giả)") {
+    primary_key(foreign_key(book_id)) BIGINT
+    primary_key(foreign_key(author_id)) BIGINT
+}
+
+
+Table(Book, "book\n(Sách)") {
+    primary_key(id) BIGINT
+    not_null(title) VARCHAR
+    category VARCHAR
+    available INT
+}
+
+Table(Loan, "loan\n(Phiếu mượn)") {
+    primary_key(id) BIGINT
+    foreign_key(not_null(borrower_id)) BIGINT
+    foreign_key(not_null(book_id)) BIGINT
+    not_null(time_borrow) BIGINT
+    not_null(time_return) BIGINT
+}
+
+Table(Position, "position\n(Chức vụ)") {
+    primary_key(id) BIGINT
+    not_null(title) VARCHAR
+    length BIGINT
+    number BIGINT
+}
+
+Table(Librarian, "librarian\n(Thủ thư)") {
+    primary_key(id) BIGINT
+    not_null(unique(username)) VARCHAR
+    not_null(password) VARCHAR
+    name VARCHAR
+}
+
+Author ||-d-o| BookAuthor
+BookAuthor |o-d-|| Book
+
+Loan }o-u-o| Borrower
+Loan }o-l-o| Book
+
+Borrower }o-|| Position
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+skinparam actorStyle awesome
+
+:Thủ thư: as User
+
+User --> (Tìm kiếm tài liệu đang được mượn)
+User --> (Tìm kiếm độc giả đang mược tài liệu)
+User --> (Tìm kiếm độc giả theo ID)
+User --> (Tìm kiếm tài liệu theo ID)
+User --> (Tìm kiếm độc giả theo tên)
+User --> (Tìm kiếm tài liệu theo tên)
+@enduml
