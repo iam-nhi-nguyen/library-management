@@ -3896,3 +3896,190 @@ Was expecting one of:
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+2021-06-25 08:45:31 [main] INFO  c.m.l.LibraryManagementApplication : Starting LibraryManagementApplication on DESKTOP-BBFJMH0 with PID 8032 (D:\VNPT_Tech\ThuViec\QuanLyThuVien\library-management\target\classes started by Oanh7698 in D:\VNPT_Tech\ThuViec\QuanLyThuVien\library-management)
+2021-06-25 08:45:31 [main] DEBUG c.m.l.LibraryManagementApplication : Running with Spring Boot v2.1.11.RELEASE, Spring v5.1.12.RELEASE
+2021-06-25 08:45:31 [main] INFO  c.m.l.LibraryManagementApplication : The following profiles are active: dev
+2021-06-25 08:45:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-25 08:45:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 131ms. Found 6 JPA repository interfaces.
+2021-06-25 08:45:33 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9cd7a1c6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-25 08:45:33 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http)
+2021-06-25 08:45:33 [main] INFO  o.a.catalina.core.StandardService : Starting service [Tomcat]
+2021-06-25 08:45:33 [main] INFO  o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2021-06-25 08:45:33 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2021-06-25 08:45:34 [main] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2021-06-25 08:45:35 [main] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2021-06-25 08:45:35 [main] INFO  o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-06-25 08:45:35 [main] INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.3.14.Final}
+2021-06-25 08:45:35 [main] INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+2021-06-25 08:45:35 [main] INFO  o.h.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-06-25 08:45:35 [main] INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-06-25 08:45:36 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-25 08:45:37 [main] INFO  c.m.l.endpoints.BorrowerEndpoint : hai so dau vao 9, 10
+2021-06-25 08:45:37 [main] INFO  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: bf68e8a7-9b29-4248-875c-2fa2ad6f8b82
+
+2021-06-25 08:45:37 [main] INFO  o.s.s.web.DefaultSecurityFilterChain : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@723c5f86, org.springframework.security.web.context.SecurityContextPersistenceFilter@51aa2a58, org.springframework.security.web.header.HeaderWriterFilter@12eaa2cd, org.springframework.web.filter.CorsFilter@301e5d23, org.springframework.security.web.authentication.logout.LogoutFilter@7978550b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@56554365, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@32f14274, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@393bcd6b, org.springframework.security.web.session.SessionManagementFilter@776a7ec6, org.springframework.security.web.access.ExceptionTranslationFilter@5c34b0f2]
+2021-06-25 08:45:37 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-25 08:45:37 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-25 08:45:37 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html]
+2021-06-25 08:45:38 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-25 08:45:38 [main] INFO  c.m.l.LibraryManagementApplication : Started LibraryManagementApplication in 8.015 seconds (JVM running for 9.639)
+2021-06-25 08:45:47 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-25 08:45:47 [http-nio-8080-exec-8] INFO  o.h.h.i.QueryTranslatorFactoryInitiator : HHH000397: Using ASTQueryTranslatorFactory
+2021-06-25 08:54:17 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m42s51ms421µs700ns).
+2021-06-25 08:54:17 [Thread-17] INFO  o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-25 08:54:17 [Thread-17] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-06-25 08:54:17 [Thread-17] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2021-06-25 08:54:17 [Thread-17] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2021-06-25 08:54:23 [main] INFO  c.m.l.LibraryManagementApplication : Starting LibraryManagementApplication on DESKTOP-BBFJMH0 with PID 14276 (D:\VNPT_Tech\ThuViec\QuanLyThuVien\library-management\target\classes started by Oanh7698 in D:\VNPT_Tech\ThuViec\QuanLyThuVien\library-management)
+2021-06-25 08:54:23 [main] DEBUG c.m.l.LibraryManagementApplication : Running with Spring Boot v2.1.11.RELEASE, Spring v5.1.12.RELEASE
+2021-06-25 08:54:23 [main] INFO  c.m.l.LibraryManagementApplication : The following profiles are active: dev
+2021-06-25 08:54:24 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-25 08:54:24 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 196ms. Found 6 JPA repository interfaces.
+2021-06-25 08:54:25 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$126402b8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-25 08:54:25 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http)
+2021-06-25 08:54:25 [main] INFO  o.a.catalina.core.StandardService : Starting service [Tomcat]
+2021-06-25 08:54:25 [main] INFO  o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2021-06-25 08:54:26 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2021-06-25 08:54:26 [main] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2021-06-25 08:54:26 [main] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2021-06-25 08:54:26 [main] INFO  o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-06-25 08:54:27 [main] INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.3.14.Final}
+2021-06-25 08:54:27 [main] INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+2021-06-25 08:54:27 [main] INFO  o.h.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-06-25 08:54:27 [main] INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-06-25 08:54:29 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-25 08:54:29 [main] INFO  c.m.l.endpoints.BorrowerEndpoint : hai so dau vao 9, 10
+2021-06-25 08:54:29 [main] INFO  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 7322a8ea-d10c-4eb0-b44b-f895967821c1
+
+2021-06-25 08:54:29 [main] INFO  o.s.s.web.DefaultSecurityFilterChain : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70d7a49b, org.springframework.security.web.context.SecurityContextPersistenceFilter@3186f8f5, org.springframework.security.web.header.HeaderWriterFilter@2d9df336, org.springframework.web.filter.CorsFilter@4509b7, org.springframework.security.web.authentication.logout.LogoutFilter@d0e4972, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69a3bf40, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@285b491f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@71f10042, org.springframework.security.web.session.SessionManagementFilter@66a93b25, org.springframework.security.web.access.ExceptionTranslationFilter@54033a65]
+2021-06-25 08:54:29 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-25 08:54:29 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-25 08:54:29 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html]
+2021-06-25 08:54:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-25 08:54:30 [main] INFO  c.m.l.LibraryManagementApplication : Started LibraryManagementApplication in 7.617 seconds (JVM running for 9.424)
+2021-06-25 08:54:30 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-25 08:54:30 [http-nio-8080-exec-1] INFO  o.h.h.i.QueryTranslatorFactoryInitiator : HHH000397: Using ASTQueryTranslatorFactory
+2021-06-25 08:54:42 [Thread-16] INFO  o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-25 08:54:42 [Thread-16] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-06-25 08:54:42 [Thread-16] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2021-06-25 08:54:43 [Thread-16] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2021-06-25 08:54:47 [main] INFO  c.m.l.LibraryManagementApplication : Starting LibraryManagementApplication on DESKTOP-BBFJMH0 with PID 14172 (D:\VNPT_Tech\ThuViec\QuanLyThuVien\library-management\target\classes started by Oanh7698 in D:\VNPT_Tech\ThuViec\QuanLyThuVien\library-management)
+2021-06-25 08:54:47 [main] DEBUG c.m.l.LibraryManagementApplication : Running with Spring Boot v2.1.11.RELEASE, Spring v5.1.12.RELEASE
+2021-06-25 08:54:47 [main] INFO  c.m.l.LibraryManagementApplication : The following profiles are active: dev
+2021-06-25 08:54:48 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-25 08:54:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 124ms. Found 6 JPA repository interfaces.
+2021-06-25 08:54:49 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cc2bf848] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-25 08:54:49 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http)
+2021-06-25 08:54:49 [main] INFO  o.a.catalina.core.StandardService : Starting service [Tomcat]
+2021-06-25 08:54:49 [main] INFO  o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2021-06-25 08:54:50 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2021-06-25 08:54:50 [main] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2021-06-25 08:54:51 [main] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2021-06-25 08:54:51 [main] INFO  o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-06-25 08:54:51 [main] INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.3.14.Final}
+2021-06-25 08:54:51 [main] INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+2021-06-25 08:54:51 [main] INFO  o.h.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-06-25 08:54:51 [main] INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-06-25 08:54:52 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-25 08:54:53 [main] INFO  c.m.l.endpoints.BorrowerEndpoint : hai so dau vao 9, 10
+2021-06-25 08:54:53 [main] INFO  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 4cc68330-a519-44f9-911f-508ea4c312ef
+
+2021-06-25 08:54:53 [main] INFO  o.s.s.web.DefaultSecurityFilterChain : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75345e47, org.springframework.security.web.context.SecurityContextPersistenceFilter@5cb76070, org.springframework.security.web.header.HeaderWriterFilter@3117ac8d, org.springframework.web.filter.CorsFilter@36f40d72, org.springframework.security.web.authentication.logout.LogoutFilter@53d2f0ec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@443ac5b8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@462f8fe9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c557eee, org.springframework.security.web.session.SessionManagementFilter@77401977, org.springframework.security.web.access.ExceptionTranslationFilter@3487947c]
+2021-06-25 08:54:53 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-25 08:54:53 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-25 08:54:53 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html]
+2021-06-25 08:54:54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-25 08:54:54 [main] INFO  c.m.l.LibraryManagementApplication : Started LibraryManagementApplication in 6.967 seconds (JVM running for 8.384)
+2021-06-25 08:54:54 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-25 08:54:54 [http-nio-8080-exec-1] INFO  o.h.h.i.QueryTranslatorFactoryInitiator : HHH000397: Using ASTQueryTranslatorFactory
+2021-06-25 08:56:46 [Thread-14] INFO  o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-25 08:56:46 [Thread-14] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-06-25 08:56:46 [Thread-14] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2021-06-25 08:56:46 [Thread-14] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2021-06-25 08:56:51 [main] INFO  c.m.l.LibraryManagementApplication : Starting LibraryManagementApplication on DESKTOP-BBFJMH0 with PID 14724 (D:\VNPT_Tech\ThuViec\QuanLyThuVien\library-management\target\classes started by Oanh7698 in D:\VNPT_Tech\ThuViec\QuanLyThuVien\library-management)
+2021-06-25 08:56:51 [main] DEBUG c.m.l.LibraryManagementApplication : Running with Spring Boot v2.1.11.RELEASE, Spring v5.1.12.RELEASE
+2021-06-25 08:56:51 [main] INFO  c.m.l.LibraryManagementApplication : The following profiles are active: dev
+2021-06-25 08:56:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-25 08:56:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 129ms. Found 6 JPA repository interfaces.
+2021-06-25 08:56:52 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f4e1130] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-25 08:56:53 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http)
+2021-06-25 08:56:53 [main] INFO  o.a.catalina.core.StandardService : Starting service [Tomcat]
+2021-06-25 08:56:53 [main] INFO  o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2021-06-25 08:56:53 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2021-06-25 08:56:53 [main] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2021-06-25 08:56:54 [main] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2021-06-25 08:56:54 [main] INFO  o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-06-25 08:56:54 [main] INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.3.14.Final}
+2021-06-25 08:56:54 [main] INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+2021-06-25 08:56:54 [main] INFO  o.h.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-06-25 08:56:54 [main] INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-06-25 08:56:55 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-25 08:56:56 [main] INFO  c.m.l.endpoints.BorrowerEndpoint : hai so dau vao 9, 10
+2021-06-25 08:56:56 [main] INFO  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 1eb6eee7-f083-46ea-98c5-c0ff7d69ff1b
+
+2021-06-25 08:56:56 [main] INFO  o.s.s.web.DefaultSecurityFilterChain : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f5f8de2, org.springframework.security.web.context.SecurityContextPersistenceFilter@a1a72d4, org.springframework.security.web.header.HeaderWriterFilter@1b6683c4, org.springframework.web.filter.CorsFilter@6baee63b, org.springframework.security.web.authentication.logout.LogoutFilter@50008974, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1afa048a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@444c0f9a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1002b06d, org.springframework.security.web.session.SessionManagementFilter@3ba8ef4e, org.springframework.security.web.access.ExceptionTranslationFilter@629de8]
+2021-06-25 08:56:56 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-25 08:56:56 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-25 08:56:56 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html]
+2021-06-25 08:56:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-25 08:56:57 [main] INFO  c.m.l.LibraryManagementApplication : Started LibraryManagementApplication in 6.711 seconds (JVM running for 8.185)
+2021-06-25 08:56:57 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-25 08:56:57 [http-nio-8080-exec-8] INFO  o.h.h.i.QueryTranslatorFactoryInitiator : HHH000397: Using ASTQueryTranslatorFactory
+2021-06-25 08:57:03 [http-nio-8080-exec-9] INFO  c.m.library.core.CrudApiEndpoint : Call Create API by anonymousUser
+2021-06-25 08:59:06 [Thread-16] INFO  o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-25 08:59:06 [Thread-16] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-06-25 08:59:06 [Thread-16] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2021-06-25 08:59:06 [Thread-16] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2021-06-25 08:59:11 [main] INFO  c.m.l.LibraryManagementApplication : Starting LibraryManagementApplication on DESKTOP-BBFJMH0 with PID 16848 (D:\VNPT_Tech\ThuViec\QuanLyThuVien\library-management\target\classes started by Oanh7698 in D:\VNPT_Tech\ThuViec\QuanLyThuVien\library-management)
+2021-06-25 08:59:11 [main] DEBUG c.m.l.LibraryManagementApplication : Running with Spring Boot v2.1.11.RELEASE, Spring v5.1.12.RELEASE
+2021-06-25 08:59:11 [main] INFO  c.m.l.LibraryManagementApplication : The following profiles are active: dev
+2021-06-25 08:59:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-25 08:59:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 178ms. Found 6 JPA repository interfaces.
+2021-06-25 08:59:13 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5b0ae3a5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-25 08:59:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http)
+2021-06-25 08:59:13 [main] INFO  o.a.catalina.core.StandardService : Starting service [Tomcat]
+2021-06-25 08:59:13 [main] INFO  o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2021-06-25 08:59:13 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2021-06-25 08:59:13 [main] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2021-06-25 08:59:14 [main] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2021-06-25 08:59:14 [main] INFO  o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-06-25 08:59:14 [main] INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.3.14.Final}
+2021-06-25 08:59:14 [main] INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+2021-06-25 08:59:14 [main] INFO  o.h.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-06-25 08:59:15 [main] INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-06-25 08:59:16 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-25 08:59:16 [main] INFO  c.m.l.endpoints.BorrowerEndpoint : hai so dau vao 9, 10
+2021-06-25 08:59:16 [main] INFO  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: afdffc78-a2e9-48c9-b3ad-bc61ab7cf621
+
+2021-06-25 08:59:16 [main] INFO  o.s.s.web.DefaultSecurityFilterChain : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a6a2c20, org.springframework.security.web.context.SecurityContextPersistenceFilter@709d2a6c, org.springframework.security.web.header.HeaderWriterFilter@6f6a2ac8, org.springframework.web.filter.CorsFilter@5d04fbb7, org.springframework.security.web.authentication.logout.LogoutFilter@dd77e0d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3fe5ad73, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66589252, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@da67c46, org.springframework.security.web.session.SessionManagementFilter@7acfcfc4, org.springframework.security.web.access.ExceptionTranslationFilter@642ec6]
+2021-06-25 08:59:17 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-25 08:59:17 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-25 08:59:17 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping : Adding welcome page: class path resource [static/index.html]
+2021-06-25 08:59:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-25 08:59:17 [main] INFO  c.m.l.LibraryManagementApplication : Started LibraryManagementApplication in 6.691 seconds (JVM running for 8.624)
+2021-06-25 08:59:19 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-25 08:59:19 [http-nio-8080-exec-8] INFO  o.h.h.i.QueryTranslatorFactoryInitiator : HHH000397: Using ASTQueryTranslatorFactory
+2021-06-25 09:00:24 [Thread-15] INFO  o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-25 09:00:24 [Thread-15] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-06-25 09:00:24 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2021-06-25 09:00:24 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.

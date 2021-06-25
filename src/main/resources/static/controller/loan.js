@@ -36,8 +36,8 @@ app.controller("loanCtrl", function ($scope, $http) {
 
     $scope.addLoan=function(){
         let d = new Date();
-        let n = d.getMilliseconds();
-        $http({method: "GET", url: "api/loan",
+        let n = d.getTime();
+        $http({method: "POST", url: "api/loan",
             transformResponse: function(data) {
                 return data;
             },
@@ -49,7 +49,6 @@ app.controller("loanCtrl", function ($scope, $http) {
             .then(
                 function (response) {
                     $scope.getLoans();
-                    alert("Them thanh cong");
                 },
                 function (response) { console.log("Error" + ":" + response.error + ":" + response.data); }
             )
@@ -59,7 +58,7 @@ app.controller("loanCtrl", function ($scope, $http) {
         input_string = input_string == null ? "" : input_string;
         $http({method: "POST", url: "api/loan", data: {"name": input_string} })
             .then(
-                function (response) { controller.students = response.data; },
+                function (response) { $scope.loans = response.data; },
                 function (response) { console.log("Error" + ":" + response.error + ":" + response.data); }
             )
     }
