@@ -1,1 +1,116 @@
-{{ bookAuthorCtrl.x }}
+<div class="row" style="padding: 12px">
+    <div class="row" style="padding: 0">
+        <div class="col s12">
+            <h5 ><i class="material-icons left h5-inline-icon-align">collections_bookmark</i>Sách và Tác giả</h5>
+        </div>
+    </div>
+    <div class="divider" style="padding: 0"></div>
+    <div class="row" style="padding: 12px">
+        <div class="col s9">
+            <table class="highlight card">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TIÊU ĐỀ</th>
+                    <th>THỂ LOẠI</th>
+                    <th>TÁC GIẢ</th>
+                    <th>CÓ SẴN</TH>
+                    <th>SỬA XÓA</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in ctrl.entity_list">
+                    <td>{{ ("00000" + x.id).slice(-5) }}</td>
+                    <td>{{ x.title  == null ? "-" : x.title  }}</td>
+                    <td>{{ x.category == null ? "-" : x.category }}</td>
+                    <td>-</td>
+                    <td><div class="chip">{{ x.available ? "Có" : "Không" }}</div></td>
+                    <td>
+                        <button class="btn-floating btn-small waves-effect waves-light modal-trigger"
+                                href="#book-form" ng-click="ctrl.openUpdate(x)">
+                            <i class="material-icons">edit</i>
+                        </button>
+                        <button class="btn-floating btn-small waves-effect waves-light" ng-click="ctrl.delete(x.id)">
+                            <i class="material-icons">delete_forever</i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col s3">
+            <div class="card">
+                <div class="card-action center-align">
+                    <button class="btn-small waves-effect wave-light modal-trigger"
+                            href="#book-form" ng-click="ctrl.openAdd()">
+                        <i class="material-icons left">add</i>Sách
+                    </button>
+                </div>
+                <div class="divider"></div>
+                <div class="card-action">
+                    <input id="book-search" class="quick-search" placeholder="Tìm kiếm nhanh"
+                           ng-model="ctrl.quick_search" ng-change="ctrl.quickSearch(ctrl.quick_search)">
+                </div>
+                <div class="divider"></div>
+                <div class="card-action">
+                    <div class="input-field">
+                        <input id="book-search-title" type="text" ng-model="ctrl.search_title">
+                        <label for="book-search-title">Tiêu đề</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="book-search-category" type="text" ng-model="ctrl.search_category">
+                        <label for="book-search-category">Thể loại</label>
+                    </div>
+                    <div class="input-field">
+                        <p><label>
+                            <input name="search-available" type="checkbox" class="filled-in" checked="checked"
+                                   ng-model="ctrl.search_available"/>
+                            <span>Có sẵn</span>
+                        </label></p>
+                    </div>
+                </div>
+                <div class="card-action center-align">
+                    <button class="btn-small waves-effect wave-light modal-trigger" ng-click="ctrl.search()">
+                        <i class="material-icons left">search</i>Tìm kiếm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="book-form" class="modal">
+    <div class="modal-content">
+        <h5>{{ctrl.in_edit_mode ? 'Chỉnh sửa thông tin sách' : 'Thêm sách mới'}}</h5>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="book-title" type="text" ng-model="ctrl.title">
+                <label for="book-title">Tiêu đề</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">collections</i>
+                <input id="borrower-category" type="text" ng-model="ctrl.category">
+                <label for="borrower-category">Thể loại</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+            </div>
+            <div class="input-field col s6">
+                <p><label>
+                    <input name="available" type="checkbox" class="filled-in" checked="checked"
+                           ng-model="ctrl.available"/>
+                    <span>Có sẵn</span>
+                </label></p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-blue btn-flat" ng-click="ctrl.update()"
+           ng-if="ctrl.in_edit_mode">Sửa</a>
+        <a class="modal-close waves-effect waves-blue btn-flat" ng-click="ctrl.add()"
+           ng-if="ctrl.in_edit_mode === false">Thêm</a>
+    </div>
+</div>

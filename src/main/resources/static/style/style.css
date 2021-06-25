@@ -1,5 +1,6 @@
 :root {
     --sidenav-width: 220px;
+    --column-fixed-width: 100px;
     --darkblue: rgb(0, 112, 192);
     --aqua: rgb(115, 174, 195);
     --aqua-alpha: rgba(115, 174, 195, 0.2);
@@ -145,4 +146,7 @@ table, card {
     background-color: var(--darkblue);
 }
 
-/* Card */
+/* Table */
+table {
+    font-size: 13px;
+}
