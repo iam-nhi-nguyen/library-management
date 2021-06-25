@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Thủ thư" as User
+participant "View\nPhiếu mượn" as View
+control "Controller\nPhiếu mượn" as Control
+database "Database" as Database
+
+User --> View: Nhập ID Sách
+User --> View: Nhập ID Độc giả
+User --> View: Gửi yêu cầu thêm phiếu mượn
+
+View --> Control: Gửi yêu cầu kiểm tra ID Sách tồn tại
+Control --> Database: Truy vấn ID Sách
+Database --> Database: Kiểm tra thông tin và truy vấn database
+Database --> Control: Thông báo kết quả
+Control --> Control: Kiểm tra ID Sách tồn tại
+
+View --> Control: Gửi yêu cầu kiểm tra ID Độc giả tồn tại
+Control --> Database: Truy vấn ID Độc giả
+Database --> Database: Kiểm tra thông tin và truy vấn database
+Database --> Control: Thông báo kết quả
+Control --> Control: Kiểm tra ID Độc giả tồn tại
+
+alt tất cả ID tồn tại
+
+    Control --> Database: Gửi yêu cầu thêm phiếu mượn mới
+    Database --> Database: Kiểm tra thông tin và lưu database
+    Database --> Control: Thông báo phiếu mượn mới
+    Control --> View: Thông báo phiếu mượn mới
+    View --> User: Cập nhật phiếu mượn mới
+
+else ID không tồn tại
+    Control --> View: Thông báo ID không tồn tại
+    View --> User: Hiển thị thông báo ID không tồn tại
+end
+
+
+
+@enduml

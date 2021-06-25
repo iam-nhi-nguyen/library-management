@@ -6294,3 +6294,4 @@ Using generated security password: d9b4fb76-d0e3-457e-ab93-7985edeefe0a
 2021-06-25 13:06:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path ''
 2021-06-25 13:06:31 [main] INFO  c.m.l.LibraryManagementApplication : Started LibraryManagementApplication in 5.146 seconds (JVM running for 5.821)
 2021-06-25 13:06:37 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-25 13:06:37 [http-nio-8080-exec-8] INFO  o.h.h.i.QueryTranslatorFactoryInitiator : HHH000397: Using ASTQueryTranslatorFactory
