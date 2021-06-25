@@ -8,5 +8,5 @@ import java.util.List;
 public interface LoanRepository extends CustomJpaRepository<Loan,Long>  {
     List<Loan> findAllByBorrowerId(Long id);
     List<Loan> findAllByBookId(Long id);
- //   List<Loan> findAllByBookIdOrBorrowerId(Long id);
+   // List<Loan> findAllByBookIdOrBorrowerId(Long id);
 }

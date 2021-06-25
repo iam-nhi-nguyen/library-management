@@ -13,30 +13,18 @@ app.controller("loanCtrl", function ($scope, $http) {
                 console.log("Error" + ":" + response.error + ":" + response.data);
             })
     }
-    $scope.updateLoan=function (id) {
-        let d = new Date();
-        let n = d.getMilliseconds();
-        $http({method: "PUT", url: "api/loan" + id,
-            transformResponse: function(data) {
-                return data;
-            },
-            data: {
-                "borrowerId":$scope.borrowerId,
-                "bookId":     $scope.bookId,
-                "timeReturn": n,
-            }})
+    $scope.updateLoan=function (x) {
+        $http({method: "PUT", url: "api/loan/" + x.id, x})
             .then(
                 function (response) {
+                    alert("update phiếu ghi thành công");
                     $scope.getLoans();
-                    alert("update thanh cong");
                     },
                 function (response) { console.log("Error" + ":" + response.error + ":" + response.data); }
             )
     }
 
     $scope.addLoan=function(){
-        let d = new Date();
-        let n = d.getTime();
         $http({method: "POST", url: "api/loan",
             transformResponse: function(data) {
                 return data;
@@ -44,28 +32,37 @@ app.controller("loanCtrl", function ($scope, $http) {
             data: {
                 "borrowerId":$scope.borrowerId,
                 "bookId":    $scope.bookId,
-                "timeBorrow": n,
             }})
             .then(
                 function (response) {
+                    alert("Thêm phiếu ghi thành công");
                     $scope.getLoans();
                 },
                 function (response) { console.log("Error" + ":" + response.error + ":" + response.data); }
             )
     }
 
-    $scope.searchByID=function(input_string){
-        input_string = input_string == null ? "" : input_string;
-        $http({method: "POST", url: "api/loan", data: {"name": input_string} })
-            .then(
-                function (response) { $scope.loans = response.data; },
-                function (response) { console.log("Error" + ":" + response.error + ":" + response.data); }
-            )
+    $scope.searchByID=function(id){
+        id = id == null ? "" : id;
+        if(id==""){
+            $scope.getLoans();
+        }
+        if(id!="")
+        {
+            $http({method: "GET", url: "api/loan/"+id })
+                .then(
+                    function (response) { $scope.loans = [response.data];},
+                    function (response) { console.log("Error" + ":" + response.error + ":" + response.data); }
+                )
+        }
+
     }
+
     $scope.clearInputs = function(){
         $scope.bookId=null;
         $scope.borrowerId=null;
     }
+
 
 
     $scope.getLoans();
