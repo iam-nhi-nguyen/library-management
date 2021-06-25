@@ -49,7 +49,7 @@ app.controller("borrowerCtrl", function ($scope, $http) {
         controller.name  = null;
         controller.email = null;
         controller.phone = null;
-        controller.positionId = null
+        controller.positionId = null;
         $('#position').val("");
         $('#position').formSelect('destroy');
         $('#position').formSelect();
@@ -104,6 +104,9 @@ app.controller("borrowerCtrl", function ($scope, $http) {
     controller.quickSearch = function(quick_search) {
         let input = quick_search == null ? "" : quick_search;
         let query = `name=='*${input}*',email=='*${input}*',phone=='*${input}*'`;
+        if (/^\d+$/.test(input)) {
+            query = query.concat(`,id==${parseInt(input)}`)
+        }
         $http({method: "GET", url: `api/borrower/search?query=${query}`})
             .then(
                 function (response) { controller.entity_list = response.data; },
@@ -115,14 +118,12 @@ app.controller("borrowerCtrl", function ($scope, $http) {
         let name  = controller.search_name  == null ? "" : controller.search_name ;
         let email = controller.search_email == null ? "" : controller.search_email;
         let phone = controller.search_phone == null ? "" : controller.search_phone;
-        console.log(controller.positions);
         let positions = "(";
         if (controller.search_positions[1]) { positions = positions.concat("1,"); }
         if (controller.search_positions[2]) { positions = positions.concat("2,"); }
         positions = positions.replace(/,$/,"");
         positions = positions.concat(")")
         let query = `name=='*${name}*';email=='*${email}*';phone=='*${phone}*';positionId=in=${positions}`;
-        console.log(query);
         $http({method: "GET", url: `api/borrower/search?query=${query}`})
             .then(
                 function (response) { controller.entity_list = response.data; },
