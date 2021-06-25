@@ -20,7 +20,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="x in ctrl.entity_list">
-                    <td>{{ ("00000" + x.id).slice(-5) }}</td>
+                    <td>{{ ("000" + x.id).slice(-3) }}</td>
                     <td>{{ x.name  == null ? "-" : x.name  }}</td>
                     <td>{{ x.email == null ? "-" : x.email }}</td>
                     <td>{{ x.phone == null ? "-" : x.phone }}</td>
