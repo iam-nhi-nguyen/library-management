@@ -1,61 +1,158 @@
-
-<div style="padding-top: 12px">
-    <nav>
-        <div class="nav-wrapper">
-            <form>
-                <div class="input-field" >
-                 <input id="search" type="search" placeholder="ID Phiếu mượn" required
-                       ng-model="id" ng-change="searchByID(id)">
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                 <i class="material-icons">close</i>
-                </div>
-            </form>
+<div class="row" style="padding: 12px">
+    <div class="row" style="padding: 0">
+        <div class="col s12">
+            <h5 ><i class="material-icons left h5-inline-icon-align">assignment</i>Phiếu mượn</h5>
         </div>
-    </nav>
+    </div>
+    <div class="divider" style="padding: 0"></div>
+    <div class="row" style="padding: 12px">
+        <div class="col s9">
+            <table class="highlight card">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ID SÁCH</th>
+                    <th>SÁCH</th>
+                    <th>ID ĐỘC GIẢ</th>
+                    <th>ĐỘC GIẢ</th>
+                    <th>THỜI GIAN MƯỢN</th>
+                    <th>THỜI GIAN TRẢ</th>
+                    <th>TRẢ SÁCH</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in ctrl.entity_list">
+                    <td>{{ ("000" + x.id).slice(-3) }}</td>
+                    <td>{{ ("000" + x.bookId).slice(-3) }}</td>
+                    <td>{{ x.book.title  == null ? "-" : x.book.title  }}</td>
+                    <td>{{ ("000" + x.borrowerId).slice(-3) }}</td>
+                    <td>{{ x.borrower.name  == null ? "-" : x.borrower.name  }}</td>
+                    <td>{{ x.created | date:'dd/MM/yyyy HH:mm' }}</td>
+                    <td>{{ x.updated == null ? "-" : x.updated | date:'dd/MM/yyyy HH:mm' }}</td>
+                    <td>
+                        <button class="btn-floating btn-small waves-effect waves-light" ng-click="ctrl.update(x)"
+                                ng-if="x.updated == null">
+                            <i class="material-icons">update</i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <div class="row">
-        <form class="col s12" accept-charset="utf-8">
-            <div class="row">
-                <div class="input-field col s2">
-                    <input id="name_inline" type="text" ng-model="bookId" placeholder="Nhập ID sách">
+        <div class="col s3">
+            <div class="card">
+                <div class="card-action center-align">
+                    <button class="btn-small waves-effect wave-light modal-trigger"
+                            href="#loan-form" ng-click="ctrl.openAdd()">
+                        <i class="material-icons left">add</i>Sách
+                    </button>
                 </div>
-                <div class="input-field col s2">
-                    <input id="major_inline" type="text" ng-model="borrowerId" placeholder="Nhập ID đọc giả"  >
+                <div class="divider"></div>
+                <div class="card-action">
+                    <input id="book-search" class="quick-search" placeholder="Tìm kiếm nhanh"
+                           ng-model="ctrl.quick_search" ng-change="ctrl.quickSearch(ctrl.quick_search)">
                 </div>
-               </div>
-            <button class="btn-floating waves-effect waves-light red" ng-click="addLoan()">
-                <i class="material-icons">add</i></button>
-           </form>
-       </div>
+                <div class="divider"></div>
+                <div class="card-action">
+                    <div class="input-field">
+                        <input id="loan-search-book-id" type="number" ng-model="ctrl.search_bookId">
+                        <label for="loan-search-book-id">ID Sách</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="loan-search-borrower-id" type="number" ng-model="ctrl.search_borrowerId">
+                        <label for="loan-search-borrower-id">ID Độc giả</label>
+                    </div>
+                </div>
+                <div class="card-action center-align">
+                    <button class="btn-small waves-effect wave-light modal-trigger" ng-click="ctrl.search()">
+                        <i class="material-icons left">search</i>Tìm kiếm theo ID
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-       <div class="row">
-           <div class="col s12">
-               <table class="striped">
-                   <thead>
-                   <tr>
-                       <th>SÁCH</th>
-                       <th>ID ĐỘC GIẢ</th>
-                       <th>ĐỘC GIẢ</th>
-                       <th>THỜI GIAN MƯỢN</th>
-                       <th>THỜI GIAN TRẢ</th>
-                   </tr>
-                   </thead>
-                   <tbody>
-                   <tr ng-repeat="x in loans">
-                       <td>{{ x.book.title == null ? "_": x.book.title}}</td>
-                       <td>{{ x.borrower.id == null ? "-" : x.borrower.id }}</td>
-                       <td>{{ x.borrower.name ==null ? "-" : x.borrower.name }}</td>
-                       <td>{{x.created|date:'dd/MM/yyyy' }}</td>
-                       <td>{{ x.updated == null ? "-" : x.update|date:'dd/MM/yyyy' }}</td>
-                       <td>
-                           <button class="btn-floating waves-effect waves-light orange" ng-click="updateLoan(x)">
-                               <i class="material-icons">update</i>
-                           </button>
+<div id="loan-form" class="modal">
+    <div class="modal-content">
+        <h5>Thêm phiếu mượn mới</h5>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">collections_bookmark</i>
+                <input id="book-id" type="number" ng-model="ctrl.bookId">
+                <label for="book-id">ID Sách</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_box</i>
+                <input id="borrower-id" type="number" ng-model="ctrl.borrowerId">
+                <label for="borrower-id">ID Độc giả</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-blue btn-flat" ng-click="ctrl.add()">Thêm</a>
+    </div>
+</div>
 
-                       </td>
-                   </tr>
-                   </tbody>
-               </table>
-           </div>
-       </div>
-   </div>
+
+<!--<div style="padding-top: 12px">-->
+<!--    <nav>-->
+<!--        <div class="nav-wrapper">-->
+<!--            <form>-->
+<!--                <div class="input-field" >-->
+<!--                 <input id="search" type="search" placeholder="ID Phiếu mượn" required-->
+<!--                       ng-model="id" ng-change="searchByID(id)">-->
+<!--                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>-->
+<!--                 <i class="material-icons">close</i>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </nav>-->
+
+<!--    <div class="row">-->
+<!--        <form class="col s12" accept-charset="utf-8">-->
+<!--            <div class="row">-->
+<!--                <div class="input-field col s2">-->
+<!--                    <input id="name_inline" type="text" ng-model="bookId" placeholder="Nhập ID sách">-->
+<!--                </div>-->
+<!--                <div class="input-field col s2">-->
+<!--                    <input id="major_inline" type="text" ng-model="borrowerId" placeholder="Nhập ID đọc giả"  >-->
+<!--                </div>-->
+<!--               </div>-->
+<!--            <button class="btn-floating waves-effect waves-light red" ng-click="addLoan()">-->
+<!--                <i class="material-icons">add</i></button>-->
+<!--           </form>-->
+<!--       </div>-->
+
+<!--       <div class="row">-->
+<!--           <div class="col s12">-->
+<!--               <table class="striped">-->
+<!--                   <thead>-->
+<!--                   <tr>-->
+<!--                       <th>SÁCH</th>-->
+<!--                       <th>ID ĐỘC GIẢ</th>-->
+<!--                       <th>ĐỘC GIẢ</th>-->
+<!--                       <th>THỜI GIAN MƯỢN</th>-->
+<!--                       <th>THỜI GIAN TRẢ</th>-->
+<!--                   </tr>-->
+<!--                   </thead>-->
+<!--                   <tbody>-->
+<!--                   <tr ng-repeat="x in loans">-->
+<!--                       <td>{{ x.book.title == null ? "_": x.book.title}}</td>-->
+<!--                       <td>{{ x.borrower.id == null ? "-" : x.borrower.id }}</td>-->
+<!--                       <td>{{ x.borrower.name ==null ? "-" : x.borrower.name }}</td>-->
+<!--                       <td>{{x.created|date:'dd/MM/yyyy' }}</td>-->
+<!--                       <td>{{ x.updated == null ? "-" : x.update|date:'dd/MM/yyyy' }}</td>-->
+<!--                       <td>-->
+<!--                           <button class="btn-floating waves-effect waves-light orange" ng-click="updateLoan(x)">-->
+<!--                               <i class="material-icons">update</i>-->
+<!--                           </button>-->
+
+<!--                       </td>-->
+<!--                   </tr>-->
+<!--                   </tbody>-->
+<!--               </table>-->
+<!--           </div>-->
+<!--       </div>-->
+<!--   </div>-->

@@ -20,7 +20,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="x in ctrl.entity_list">
-                    <td>{{ ("00000" + x.id).slice(-5) }}</td>
+                    <td>{{ ("000" + x.id).slice(-3) }}</td>
                     <td>{{ x.title  == null ? "-" : x.title  }}</td>
                     <td>{{ x.category == null ? "-" : x.category }}</td>
                     <td>-</td>
@@ -91,8 +91,8 @@
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">collections</i>
-                <input id="borrower-category" type="text" ng-model="ctrl.category">
-                <label for="borrower-category">Thể loại</label>
+                <input id="book-category" type="text" ng-model="ctrl.category">
+                <label for="book-category">Thể loại</label>
             </div>
         </div>
         <div class="row">
