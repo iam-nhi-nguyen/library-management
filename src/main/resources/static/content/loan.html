@@ -23,7 +23,7 @@
                     <input id="major_inline" type="text" ng-model="borrowerId" placeholder="Nhập ID đọc giả"  >
                 </div>
                </div>
-            <button class="btn-floating waves-effect waves-light red" ng-click="addLoan(id)">
+            <button class="btn-floating waves-effect waves-light red" ng-click="addLoan()">
                 <i class="material-icons">add</i></button>
            </form>
        </div>
@@ -45,11 +45,11 @@
                        <td>{{ x.book.title == null ? "_": x.book.title}}</td>
                        <td>{{ x.borrower.id == null ? "-" : x.borrower.id }}</td>
                        <td>{{ x.borrower.name ==null ? "-" : x.borrower.name }}</td>
-                       <td>{{ x.timeBorrow == null ? "-" : x.timeBorrow }}</td>
+                       <td>{{ x.timeBorrow == null ? "-" : x.timeBorrow  | date:'dd/MM/yyyy' }}</td>
                        <td>{{ x.timeReturn == null ? "-" : x.timeReturn}}</td>
                        <td>
                            <button class="btn-floating waves-effect waves-light orange"
-                                   ng-if="controller.in_edit_mode === false || controller.chosen_id != x.id" ng-click="updateLoan(x)">
+                                   ng-if="controller.in_edit_mode === false || controller.chosen_id != x.id" ng-click="updateLoan(x.id)">
                                <i class="material-icons">update</i>
                            </button>
 
