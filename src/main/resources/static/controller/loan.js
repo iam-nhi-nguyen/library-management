@@ -19,17 +19,49 @@ app.controller("loanCtrl", function ($scope, $http) {
                 return data;
             },
             data: {
-
+                "borrowerId":$scope.borrowerId,
+                "bookId":     $scope.bookId,
             }})
             .then(
-                function (response) { $scope.getLoans(); },
+                function (response) {
+                    $scope.getLoans();
+                    alert("update thanh cong");
+                    },
                 function (response) { console.log("Error" + ":" + response.error + ":" + response.data); }
             )
     }
+
+    $scope.addLoan=function(){
+        $http({method: "GET", url: "api/loan",
+            transformResponse: function(data) {
+                return data;
+            },
+            data: {
+                "borrowerId":$scope.borrowerId,
+                "bookId":    $scope.bookId,
+            }})
+            .then(
+                function (response) {
+                    $scope.getLoans();
+                    alert("Them thanh cong");
+                },
+                function (response) { console.log("Error" + ":" + response.error + ":" + response.data); }
+            )
+    }
+
     $scope.searchByID=function(input_string){
         input_string = input_string == null ? "" : input_string;
-
+        $http({method: "POST", url: "api/loan", data: {"name": input_string} })
+            .then(
+                function (response) { controller.students = response.data; },
+                function (response) { console.log("Error" + ":" + response.error + ":" + response.data); }
+            )
     }
+    $scope.clearInputs = function(){
+        $scope.bookId=null;
+        $scope.borrowerId=null;
+    }
+
 
     $scope.getLoans();
 

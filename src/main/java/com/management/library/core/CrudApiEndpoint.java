@@ -1,7 +1,5 @@
-package com.management.library.core.rsql;
+package com.management.library.core;
 
-import com.management.library.core.CrudService;
-import com.management.library.core.IdEntity;
 import com.management.library.utils.PaginationUtil;
 import com.management.library.utils.SecurityUtils;
 import org.slf4j.Logger;
