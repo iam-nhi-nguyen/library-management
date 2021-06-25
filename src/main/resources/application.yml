@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   datasource:
     url: jdbc:mysql://10.15.13.149:3306/librarytest?useUnicode=true&characterEncoding=utf-8
     username: root
@@ -8,4 +10,10 @@ spring:
 
 logging:
   level:
-    org.springframework: INFO
+    org.springframework.web: ERROR
+    com.management.library: DEBUG
+    org.hibernate.cache.jcache.access.AbstractReadWriteRegionAccessStrategy: OFF
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} : %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} : %msg%n"
+  file: library.log

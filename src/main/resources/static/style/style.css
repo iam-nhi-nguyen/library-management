@@ -1,78 +1,148 @@
 :root {
-    --darkslateblue: rgb(32, 80, 129);
+    --sidenav-width: 220px;
     --darkblue: rgb(0, 112, 192);
+    --aqua: rgb(115, 174, 195);
+    --aqua-alpha: rgba(115, 174, 195, 0.2);
+
+    --lightgray: rgb(191, 191, 191);
+    --gray: rgb(127, 127, 127);
+    --darkslateblue: rgb(32, 80, 129);
     --blue: rgb(32, 125, 185);
     --bluegray: rgb(83, 134, 180);
-    --aqua: rgb(115, 174, 195);
-    --gray: rgb(127, 127, 127);
-    --lightgray: rgb(191, 191, 191);
+    --darkslategray: rgb(26, 64, 103);
     --yellow: rgb(255, 192, 0);
     --yellowalpha: rgba(255, 192, 0, 0.6);
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
+/* Offset main section from sidenav */
+.sidenav {
+    padding-top: 12px;
+    width: var(--sidenav-width);
 }
-.button {
+
+header, main, footer {
+    padding-left: var(--sidenav-width);
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
+/* Background */
+main {
+    background: ghostwhite;
+}
+
+table, card {
+    background: white;
+}
+
+/* Logo */
+#logo {
+    color: white;
     font-size: 20px;
-    background-color: #008CBA;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.tabs-vertical .tabs {
-    min-height: 100vh;
-    background: var(--darkslateblue);
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    display: -webkit-flex;
-    display: flex;
+#logo img {
+    width: 100px;
 }
 
-.tabs-vertical .tab a {
+/* Sidenav */
+.sidenav {
+    background: var(--darkblue);
+}
+
+.sidenav .tab a {
     text-align: left;
-    color: var(--yellowalpha);
 }
 
-.tabs-vertical .tab .active {
-    -moz-transition: border-color .5s ease;
-    -o-transition: border-color .5s ease;
-    -webkit-transition: border-color .5s ease;
+.sidenav .tab a, .sidenav .tab :not(.active) > i {
+    color: var(--aqua);
+}
+
+.sidenav .tab a:hover {
+    transition: background-color .5s ease;
     transition: border-color .5s ease;
-    border-right: 3px solid var(--yellow);
+    background: var(--aqua-alpha);
+    border-right: 3px solid var(--aqua);
 }
 
-.tabs-vertical .tab :hover {
-    border-right: 3px solid var(--yellowalpha);
+.sidenav .tab .active {
+    transition: border-color .5s ease;
+    border-right: 3px solid white;
 }
 
-.tabs-vertical .indicator {
-    display: none;
+.sidenav .tab .active, .sidenav .tab .active > i {
+    color: white;
 }
 
-.tabs .tab a.active {
-    color: var(--yellow);
-}
-
-.tabs .tab a:hover {
-    color: var(--yellow);
-}
-
-.tabs-vertical .tab-content {
-    display: block;
-}
-
-.tabs-vertical>.tab-content .active {
-    display: block;
-}
-
-#top, #bottom {
-    padding: 0;
-    height: 100%;
-    margin: 0;
-    display: block;
-}
-
+/* Icons */
 .inline-icon-align {
     vertical-align: -6px;
 }
+
+.h5-inline-icon-align {
+    font-size: 30px;
+    vertical-align: -6px;
+    color: var(--lightgray);
+}
+
+/* Form */
+.dropdown-content li > a, .dropdown-content li > span {
+    color: var(--darkblue) !important;
+}
+
+.input-field i, .input-field i:focus {
+    color: var(--darkblue) !important;
+}
+
+.input-field input:focus + label {
+    color: var(--darkblue) !important;
+}
+
+.row .input-field input {
+    border-bottom: 1px solid var(--lightgray) !important;
+    box-shadow: 0 1px 0 0 var(--lightgray) !important;
+}
+
+.row .input-field input:focus {
+    border-bottom: 1px solid var(--darkblue) !important;
+    box-shadow: 0 1px 0 0 var(--darkblue) !important;
+}
+
+.quick-search, .quick-search:focus {
+    border-bottom: 0 !important;
+    box-shadow: 0 0 !important;
+}
+
+/* Buttons */
+
+.btn-small, .btn-small:focus {
+    background: var(--darkblue);
+}
+
+.btn-small:hover {
+    background: var(--darkslateblue);
+}
+
+.waves-effect.waves-blue .waves-ripple {
+    background-color: var(--darkblue);
+}
+
+/* Checkbox */
+
+[type="checkbox"]:checked+span:not(.lever):before{
+    border-right:2px solid white;
+    border-bottom:2px solid white;
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after{
+    border:2px solid var(--darkblue);
+    background-color: var(--darkblue);
+}
+
+/* Card */

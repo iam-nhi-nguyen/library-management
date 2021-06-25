@@ -1,7 +1,13 @@
-<div style="padding-top: 12px">
-    <div class="row">
+<div class="row" style="padding: 12px">
+    <div class="row" style="padding: 0">
         <div class="col s12">
-            <table class="striped">
+            <h5 ><i class="material-icons left h5-inline-icon-align">account_box</i>Thành viên</h5>
+        </div>
+    </div>
+    <div class="divider" style="padding: 0"></div>
+    <div class="row" style="padding: 12px">
+        <div class="col s9">
+            <table class="highlight card">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -9,28 +15,117 @@
                     <th>EMAIL</th>
                     <th>SĐT</th>
                     <th>CHỨC VỤ</th>
+                    <th>SỬA/XÓA</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="x in borrowerCtrl.borrowers">
+                <tr ng-repeat="x in ctrl.entity_list">
                     <td>{{ ("00000" + x.id).slice(-5) }}</td>
                     <td>{{ x.name  == null ? "-" : x.name  }}</td>
                     <td>{{ x.email == null ? "-" : x.email }}</td>
                     <td>{{ x.phone == null ? "-" : x.phone }}</td>
                     <td>{{ x.positionId == null ? "-" : x.positionId == 1 ? "Sinh viên" : "Giảng viên" }}</td>
                     <td>
-                        <button class="btn-floating waves-effect waves-light orange"
-                                ng-if="controller.in_edit_mode === false || controller.chosen_id != x.id" ng-click="enterEditMode(x)">
-                            <i class="material-icons">update</i></button>
-                        <button class="btn-floating waves-effect waves-light teal"
-                                ng-if="controller.in_edit_mode && controller.chosen_id == x.id" ng-click="exitEditMode(x)">
-                            <i class="material-icons">exit_to_app</i></button>
-                        <button class="btn-floating waves-effect waves-light red" ng-click="deleteStudent(x.id)">
-                            <i class="material-icons">delete_forever</i></button>
+                        <button class="btn-floating btn-small waves-effect waves-light modal-trigger"
+                                href="#borrower-form" ng-click="ctrl.openUpdate(x)">
+                            <i class="material-icons">edit</i>
+                        </button>
+                        <button class="btn-floating btn-small waves-effect waves-light" ng-click="ctrl.delete(x.id)">
+                            <i class="material-icons">delete_forever</i>
+                        </button>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
+
+        <div class="col s3">
+            <div class="card">
+                <div class="card-action center-align">
+                    <button class="btn-small waves-effect wave-light modal-trigger"
+                            href="#borrower-form" ng-click="ctrl.openAdd()">
+                        <i class="material-icons left">add</i>Thành viên
+                    </button>
+                </div>
+                <div class="divider"></div>
+                <div class="card-action">
+                    <input id="borrower-search" class="quick-search" placeholder="Tìm kiếm nhanh"
+                           ng-model="ctrl.quick_search" ng-change="ctrl.quickSearch(ctrl.quick_search)">
+                </div>
+                <div class="divider"></div>
+                <div class="card-action">
+                    <div class="input-field">
+                        <input id="borrower-search-name" type="text" ng-model="ctrl.search_name">
+                        <label for="borrower-search-name">Tên</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="borrower-search-email" type="text" ng-model="ctrl.search_email">
+                        <label for="borrower-search-email">Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="borrower-search-phone" type="text" ng-model="ctrl.search_phone">
+                        <label for="borrower-search-phone">Phone</label>
+                    </div>
+                    <div class="input-field">
+                        <p> <label>
+                            <input name="search-position" type="checkbox" class="filled-in" checked="checked"
+                                   ng-model="ctrl.search_positions[1]"/>
+                            <span>Sinh viên</span>
+                        </label></p>
+                        <p><label>
+                            <input name="search-position" type="checkbox" class="filled-in" checked="checked"
+                                   ng-model="ctrl.search_positions[2]"/>
+                            <span>Giảng viên</span>
+                        </label> </p>
+                    </div>
+                </div>
+                <div class="card-action center-align">
+                    <button class="btn-small waves-effect wave-light modal-trigger" ng-click="ctrl.search()">
+                        <i class="material-icons left">search</i>Tìm kiếm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="borrower-form" class="modal">
+    <div class="modal-content">
+        <h5>{{ctrl.in_edit_mode ? 'Chỉnh sửa thông tin thành viên' : 'Thêm thành viên mới'}}</h5>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="borrower-name" type="text" ng-model="ctrl.name">
+                <label for="borrower-name">Họ và tên</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">email</i>
+                <input id="borrower-email" type="email" class="validate" ng-model="ctrl.email">
+                <label for="borrower-email">Email</label>
+                <span class="helper-text" data-error="Email không hợp lệ" data-success=""></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="borrower-phone" type="tel" ng-model="ctrl.phone" class="validate">
+                <label for="borrower-phone" ng-if="ctrl.in_edit_mode === false">Số điện thoại</label>
+                <span class="helper-text" data-error="Số điện thoại không hợp lệ" data-success=""></span>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">layers</i>
+                <select id="borrower-position" ng-model="ctrl.positionId" style="text-align: right">
+                    <option value="1">Sinh viên</option>
+                    <option value="2">Giảng viên</option>
+                </select>
+                <label for="borrower-position">Chức vụ</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-blue btn-flat" ng-click="ctrl.update()"
+            ng-if="ctrl.in_edit_mode">Sửa</a>
+        <a class="modal-close waves-effect waves-blue btn-flat" ng-click="ctrl.add()"
+           ng-if="ctrl.in_edit_mode === false">Thêm</a>
     </div>
 </div>

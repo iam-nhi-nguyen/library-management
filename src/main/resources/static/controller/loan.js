@@ -14,6 +14,8 @@ app.controller("loanCtrl", function ($scope, $http) {
             })
     }
     $scope.updateLoan=function (id) {
+        let d = new Date();
+        let n = d.getMilliseconds();
         $http({method: "PUT", url: "api/loan" + id,
             transformResponse: function(data) {
                 return data;
@@ -21,6 +23,7 @@ app.controller("loanCtrl", function ($scope, $http) {
             data: {
                 "borrowerId":$scope.borrowerId,
                 "bookId":     $scope.bookId,
+                "timeReturn": n,
             }})
             .then(
                 function (response) {
@@ -32,6 +35,8 @@ app.controller("loanCtrl", function ($scope, $http) {
     }
 
     $scope.addLoan=function(){
+        let d = new Date();
+        let n = d.getMilliseconds();
         $http({method: "GET", url: "api/loan",
             transformResponse: function(data) {
                 return data;
@@ -39,6 +44,7 @@ app.controller("loanCtrl", function ($scope, $http) {
             data: {
                 "borrowerId":$scope.borrowerId,
                 "bookId":    $scope.bookId,
+                "timeBorrow": n,
             }})
             .then(
                 function (response) {
